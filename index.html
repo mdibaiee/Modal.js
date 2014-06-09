@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Modal.js</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' href='main.css'>
+  </head>
+  
+  <body>
+  
+    <h1>Modal.js</h1>
+    <p>data-modal<p>
+
+    <div data-modal class=''>
+      <h2>Hi! I'm a Modal</h2>
+      <p>
+        You can close me by clicking anywhere in the page but myself!
+      </p>
+      <p>
+        All you have to do is to include <a href='github.com/mdibaiee/modal.js'>modal.js</a> and add <code>data-modal</code> attribute to your modal AND elements which activate the modal.
+      </p>
+      <p>
+        Modal.js will remove <code>modalClass || 'active'</code> class from the modal when clicked away.
+      </p>
+      <p>
+        It's not only about Modals, you can use Modal.js to provide click-away-to-close functionality to any element.
+      </p>
+    </div>
+
+    <button data-modal>Show Modal</button>
+    
+    <script src='./modal.js'></script>
+    <script>
+      var modal = document.querySelectorAll('[data-modal]')[0];
+      var button = document.querySelectorAll('button')[0];
+      button.onclick = function() {
+        modal.className = 'active';
+      }
+    </script>
+  </body>
+  
+</html>
