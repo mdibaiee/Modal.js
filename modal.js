@@ -15,6 +15,11 @@
       for(var i = 0, len = elements.length; i < len; i++) {
         elements[i].className = elements[i].className.replace(global.modalClass || 'active', '');
       }
+    } else {
+      for(var i = 0, len = elements.length; i < len; i++) {
+        if(elements[i] == el) return;
+        elements[i].className = elements[i].className.replace(global.modalClass || 'active', '');
+      }
     }
   })
 })(this);
