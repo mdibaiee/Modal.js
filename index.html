@@ -21,7 +21,7 @@
         All you have to do is to include <a href='https://raw.githubusercontent.com/mdibaiee/Modal.js/gh-pages/modal.min.js'>modal.js</a> and add <code>data-modal</code> attribute to your modal AND elements which activate the modal.
       </p>
       <p>
-        Modal.js will remove <code>modalClass || 'active'</code> class from the modal when clicked away.
+        Modal.js will trigger a `close` event on element when clicked away.
       </p>
       <p>
         It's not only about Modals, you can use Modal.js to provide click-away-to-close functionality to any element.
@@ -37,6 +37,9 @@
       button.onclick = function() {
         modal.className = 'active';
       }
+      button.addEventListener('close', function() {
+        modal.className = '';
+      })
     </script>
   </body>
   

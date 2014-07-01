@@ -6,20 +6,15 @@
     var modal = false;
     var el = e.target;
     if(el.getAttribute('data-modal') !== null) modal = true;
-    while(el.parentNode.getAttribute) {
+    while(!modal && el.parentNode.tagName) {
       el = el.parentNode;
       if(el.getAttribute('data-modal') !== null) modal = true;
     }
 
-    if(!modal) {
-      for(var i = 0, len = elements.length; i < len; i++) {
-        elements[i].className = elements[i].className.replace(global.modalClass || 'active', '');
-      }
-    } else {
-      for(var i = 0, len = elements.length; i < len; i++) {
-        if(elements[i] == el) return;
-        elements[i].className = elements[i].className.replace(global.modalClass || 'active', '');
-      }
+    for(var i = 0, len = elements.length; i < len; i++) {
+      if(modal && elements[i] == el) return;
+      var ev = new CustomEvent('close');
+      elements[i].dispatchEvent(ev);
     }
   })
 })(this);
